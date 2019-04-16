@@ -12,3 +12,6 @@ P3
 1.cat program no using buffer
 2.ls program
 3.Using system call 'mkdir', implemeting program making directory(use umask function)
+
+P4
+1. make directory
