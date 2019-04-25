@@ -17,6 +17,8 @@ P4
 1. make directory
 
 P5
+1. fork
+2. git manual
 
 P6
 1. Signal
