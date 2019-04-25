@@ -21,5 +21,4 @@ P5
 P6
 1. Signal
 
-others
- received sample codes in class
+others are received sample codes in class time
