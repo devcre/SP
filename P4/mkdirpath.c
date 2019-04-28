@@ -27,7 +27,7 @@ static void make_path(const char *path)
     /*mkdir 함수를 이용해 바로 디렉토리 생성*/
 	int val = mkdir(path, 0775);
 
-    //이미 해당 이름을 가진 파일이 있어서 디렉토리 생성이 물가능한 경우
+    //이미 해당 이름을 가진 파일이 있어서 디렉토리 생성이 불가능한 경우
     if (errno == EEXIST) {
         struct stat st;
         if (stat(path, &st) < 0) die("stat");
