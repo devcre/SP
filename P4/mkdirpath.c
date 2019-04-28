@@ -26,7 +26,7 @@ static void make_path(const char *path)
     //바로 만들수 있는 경우 
     /*mkdir 함수를 이용해 바로 디렉토리 생성*/
     //int val = mkdir(path, 0775); // wrong code
-    if(mkdir(path, 0777) -== 0){
+    if(mkdir(path, 0777) == 0){
 	return;
     }
 
@@ -55,7 +55,7 @@ static void make_path(const char *path)
             exit(1);
         }
 
-        char *sep = strchr(parent_path, '/');
+        char *sep = strrchr(parent_path, '/');
         if (!sep) {
             fprintf(stderr, "error: current directory is not a directory???\n");
             exit(1);
@@ -89,8 +89,7 @@ static void make_path(const char *path)
     }
 }
 
-static void
-die(const char *s)
+static void die(const char *s)
 {
     perror(s);
     exit(1);
