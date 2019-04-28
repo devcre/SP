@@ -25,7 +25,10 @@ static void make_path(const char *path)
 {
     //바로 만들수 있는 경우 
     /*mkdir 함수를 이용해 바로 디렉토리 생성*/
-	int val = mkdir(path, 0775);
+    //int val = mkdir(path, 0775); // wrong code
+    if(mkdir(path, 0777) -== 0){
+	return;
+    }
 
     //이미 해당 이름을 가진 파일이 있어서 디렉토리 생성이 불가능한 경우
     if (errno == EEXIST) {
@@ -65,16 +68,18 @@ static void make_path(const char *path)
 
 	// 상위 디렉토리를 의미하는 parent_path를 이용해 make_path함수를 재귀호출
 	// path를 이용해 원래 생성하려던 디렉토리 생성
-	int i;
-	printf("%s\n", last);
-	if (val == 0){
-		mkdir(parent_path, 0775);
-		for (i=0; i<argc; i++){
-			path = srtchr(parent_path, '/');
-		}
-		make_path(path);
-	}	
+// 	int i;
+// 	printf("%s\n", last);
+// 	if (val == 0){
+// 		mkdir(parent_path, 0775);
+// 		for (i=0; i<argc; i++){
+// 			path = srtchr(parent_path, '/');
+// 		}
+// 		make_path(path);
+// 	}	// wrong code
 	
+	make_path(parent_path);
+	if(mkdir(path, 0777) < 0) die(path);
 	return;
     }
     //그 외 에러처리
