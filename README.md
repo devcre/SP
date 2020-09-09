@@ -3,8 +3,8 @@
 
 P1
 
-"gcc" and "Make" program
-compile together after generate object codes: one header file and three C file
+ 1. "gcc" and "Make" program
+ 2. compile together after generate object codes: one header file and three C file
 
 P2
 
